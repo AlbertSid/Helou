@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* Mafengwo Login&reg */
+html,body{ width:100%; height:100%; overflow-y:auto; overflow-x:hidden;}
+body{font-size:12px;font-family:verdana,Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,STHeiti;_font-family:Tahoma,Arial,Helvetica,STHeiti;}
+*,*:active,*:focus { outline: 0 none;}
+input,select,textarea,button{font-family:verdana,Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",STHeiti;_font-family:Tahoma,Arial,Helvetica,STHeiti;}
+body, p, div{margin:0; padding:0; word-break:break-all; word-wrap:break-word;}
+h1, h2, h3, h4, h5, h6 { margin:0; padding:0; font-size: 100%; }
+ul,ol,li,dl,dd,dt{ margin:0; padding:0; list-style:none;}
+a {color:#ffa800;text-decoration: none;}
+a:hover {color:#ffa800;text-decoration: underline;}
+td {font-size: 12px;color: #996600;}
+img{border:none;}
+input {outline: none;}
+.line20 {line-height:20px;}
+.tdcenter { text-align:center;}
+.hide { display:none;}
+.clearbg { background:none;}
+.clear{clear:both;display:block;height:0;font-size:0;line-height:0;overflow:hidden;}
+.clearfix:after,.wrapper:after,.article:after{content:'\20';clear:both;display:block;}
+.clearfix,.wrapper,.article{*zoom:1;}
+
+.login-popup-box {width: 540px;background-color: #fff;padding: 20px;overflow: hidden;margin: 10px 0 0;}
+.login-popup-box .login-box {width: 255px;float: left;padding: 20px 34px 0 10px;position: relative;}
+.login-popup-box .login-box.has-code {padding-top: 0;}
+.login-popup-box .login-box .errer-info {width: 227px;height: 40px;background: url(/images/login/loginBox_btn.gif) -180px 0 no-repeat;padding: 9px 0 0 29px;color: #f00;font-weight: 700;position: absolute;top: 0;left: 0;}
+.login-popup-box .login-box h2 {line-height: 1.8em;font-size: 18px;color: #333;}
+.login-popup-box .login-box p {line-height: 1.8em;font-size: 12px;color: #333;}
+.login-popup-box .login-input {height: 25px;padding: 19px 0 0;}
+.login-popup-box .login-input input {width: 248px;height: 23px;border: 1px solid;border-color: #aaa #ddd #ddd #aaa;color: #999;font:12px/22px;padding: 2px 0 0 5px;}
+.login-popup-box .login-input.login-code input {width: 163px;float: left;}
+.login-popup-box .login-input.login-code img {width: 73px;height: 25px;border: 1px solid #ddd;float: right;cursor: pointer;}
+.login-popup-box .login-buttons {padding-top: 25px;}
+.login-popup-box .login-buttons button {width: 62px;height: 26px;background-color: #ffa800;color: #fff;border: 0;border-radius: 4px;cursor: pointer;line-height: 26px;overflow: hidden;display: block;padding: 0;margin: 0 0 0 30px;float: right;}
+.login-popup-box .login-buttons span {float: left;font-size: 12px;padding-top: 6px;}
+.login-popup-box .connect-box {width: 215px;float: left;padding: 20px 0 0 15px;height: 221px;border-left: 1px solid #ddd;}
+.login-popup-box .connect-box h3 {padding: 15px 0 10px 35px;height: 28px;font-size: 14px;color: #333;font-weight: normal;}
+.login-popup-box .connect-buttons {padding: 0 0 0 20px;}
+.login-popup-box .connect-buttons a {display: block;_float: left;width: 135px;margin: 0 auto 10px;_margin-left: 15px;height: 32px;border-bottom: 1px solid #eba452;background-color: #ffc952;border-radius: 2px;line-height: 32px;font-size: 14px;color: #fff;text-align: left;}
+.login-popup-box .connect-buttons a i {width: 25px;height: 20px;float: left;margin: 6px 6px 0 9px;background: url(/images/login/lc-icon.png) no-repeat;cursor: pointer;}
+.login-popup-box .connect-buttons a.qq i {background-position: 0 0;}
+.login-popup-box .connect-buttons a.weibo i {background-position: 0 -21px;}
+.login-popup-box .regist-link {height: 28px;font-size: 14px;color: #333;padding: 10px 0 0 35px;}
+.login-popup-box i.loading{ width:34px; height:20px; display:none; background:url(/images/common/loading_big.gif) no-repeat; position:absolute; top:156px; left:275px;}
+.login-popup-box p.loading{font-size:14px; color:#666; display:none; width:100%; text-align:center; position:absolute; top:115px; left:0;font-size: 24px;color: #ffa800;}
+
+
+.login-popup-box.loading i.loading,.login-popup-box.loading p.loading{display:block;}
+
+
+.placeholder {color: #b1b1b1!important;}

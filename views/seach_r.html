@@ -1,0 +1,228 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+<!--<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>-->
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+<!--公共的样式与JS-->
+<!--
+
+注意，angularJS这里路由设置要多加载一次M.protrotype.js,所以上面不能注释
+
+-->
+<!--------------itattoo--------------->
+<link rel="stylesheet" href="../css/index/search-cleaned.css"/>
+<div class="wrapper">
+    <script id="filter_template" type="text/x-handlerbars-template">
+        <div class="sort-bar">
+            <ul class="col-sort" data-type="sort">
+
+                {{#unless isAirbnb}}
+                <li data-type="sort_order"><a href="javascript:void(0);" data-cs-p="最近发布">最近发布</a></li>
+                <li data-type="sort_comment"><a href="javascript:void(0);" data-cs-p="热门推荐">热门推荐</a></li>
+                {{/unless}}
+
+                <li data-type="sort_price">
+                    <a class="price-sort" href="javascript:void(0);" data-cs-p="价格排序">价格<i></i></a>
+                </li>
+            </ul>
+            <div class="col-drop">
+
+                {{#list filters}}
+                <div class="flr-item drop-menu" data-type="checkbox_list" data-value="{{type}}">
+
+                    <a data-type="drop-tip" class="drop-hd" href="javascript:void(0);" data-cs-p="{{name}}">
+                        <i class="icon-checkbox"></i>
+                        <span data-type="name">{{name}}</span><i class="icon-drop"></i>
+                    </a>
+
+                    {{#unless isCustom}}
+                    <ul class="drop-bd {{class}}">
+
+                        {{#list options}}
+                        <li data-type="{{../type}}" data-value="{{value}}" class="on">
+                            <a href="javascript:void(0);"><i class="icon-checkbox"></i>{{text}}</a>
+
+                            {{#if dist}}
+                            <span>{{dist.order_percent}}%选择</span>
+                            {{/if}}
+
+                        </li>
+                        {{/list}}
+
+                        {{#if display_spec_price}}
+                        <li class="custom">
+                            <i class="icon-checkbox"></i>
+                            <input data-type="min_price" type="text" class="range-txt"><span>-</span>
+                            <input data-type="max_price" type="text" class="range-txt">
+                            <a class="range-btn hide" data-type="confirm_price_range" href="javascript:void(0);">确定</a>
+                        </li>
+                        {{/if}}
+
+                    </ul>
+                    {{/unless}}
+
+                    {{#if isCustom}}
+                    <div class="drop-bd {{class}}"></div>
+                    {{/if}}
+
+                </div>
+                {{/list}}
+            </div>
+            <dl class="col-date">
+                <dt>
+                    <i class="icon-date"></i>
+                    入住时间：
+                    <b id="checkin-date"></b>
+                    <span class="night" id="num-nights"></span>
+                    <input id="ipt_datepicker_1" type="text" value="{{checkinDate}}">
+                    <input id="ipt_datepicker_2" type="text" value="{{checkoutDate}}">
+                </dt>
+                <dd>
+                    <a class="btn" id="btn-datepicker" href="javascript:void(0);">修改</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="extend-bar">
+            <div class="col-search" id="keyword">
+                <input data-type="keyword" type="text" class="s-txt" placeholder="#">
+                <input data-type="keyword_confirm" type="button" class="s-btn clickstat" data-cs-p="#">
+            </div>
+            <div class="extend-left-wrapper clearfix">
+                <div class="total-info">
+
+                </div>
+                <div class="col-filter">
+                    {{#unless isAirbnb}}
+                    <a class="item" data-type="only_available" href="javacript:void(0);" data-cs-p="#">
+                        <i class="icon-checkbox"></i>按楼盘查看</a>
+                    {{/unless}}
+
+                    {{#list tags}}
+                    <a class="item" data-type="tag" data-value="{{id}}" href="javacript:void(0);"
+                       data-cs-p="{{{name}}}"><i class="icon-checkbox"></i>{{{transfertag name}}}</a>
+                    {{/list}}
+
+                    <a class="item" data-type="only_fav" href="javacript:void(0);" data-cs-p="收藏">
+                        <i class="icon-checkbox"></i>收藏</a>
+                </div>
+                <div id="selected" class="col-tags clearfix"></div>
+            </div>
+        </div>
+    </script>
+
+    <div class="hotel-sortbar">
+        <div class="h-tab hide" id="hotel_types" style="display: block;"></div>
+        <div id="filters" data-cs-t="结果列表筛选"></div>
+    </div>
+    <div class="h-progressbar" id="J_loading_progressbar"></div>
+    <div class="n-content">
+        <div class="hotel-list" id="hotel_list">
+            <div class="hotel-item clearfix h-item">
+                <div class="hotel-pic">
+                    <a href="#" target="_blank">
+                        <img src="../images/wKgB4lMYtkCAPUa_AAFmSHhABWo67.jpeg" alt="#" style="width: 330px;">
+                    </a>
+                </div>
+
+                <div class="hotel-title">
+                    <div class="title">
+                        <h3><a href="#" ui-sref="details"
+                               title="青年旅舍">青年旅舍</a></h3>
+                        <br>
+                        <span>Captain Hostel-Fu Zhou Rd Branch</span>
+                    </div>
+                    <div class="icons ">
+                        <i class="icon-rank red-first"></i>
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <ul class="nums clearfix">
+                        <li>
+                            <a href="#" target="_blank"><em>979条</em><br>好楼评价</a>
+                        </li>
+                        <li class="split"></li>
+                        <li>
+                            <a href="#" target="_blank"><em>60篇</em><br>游记提及</a>
+                        </li>
+                    </ul>
+                    <p class="summary" title="说明文字">说明文字</p>
+
+                    <div class="location">
+                        <p title="说明">
+                            地址:&nbsp;上海市黄浦区福州路37号<a class="a-maps" href="javascript:;" rel="nofollow">
+                            <i></i>地图</a>
+                        </p>
+                        <span>位于:&nbsp;<a href="#">外滩</a></span>
+                    </div>
+                </div>
+
+                <div class="hotel-other">
+                    <div class="collect">
+                        <a class="btn-addCollect " href="javascript:;">
+                            <i></i>收藏 </a>
+                        <a class="btn-cancelCollect hide" href="javascript:;">
+                            <i></i>取消收藏
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="sales-toolbar" id="J_part_side_bar">
+        <div class="stbar-middle">
+
+            <div class="stbar-nav">
+                <div class="stbar-item stbar-order">
+                    <a href="#" target="_blank">
+                        <i class="stbar-icon"></i><span class="stbar-text">订单</span>
+                    </a>
+                </div>
+                <div class="stbar-item stbar-coupon">
+                    <a href="#" target="_blank">
+                        <i class="stbar-icon"></i><span class="stbar-text">优惠券</span>
+                    </a>
+                </div>
+                <div class="stbar-item stbar-collect">
+                    <a href="#" target="_blank">
+                        <i class="stbar-icon"></i><span class="stbar-text">收藏</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="pnl_mappop" class="map_pop">
+        <div id="hotel_map_box" style="width:100%;height:100%"></div>
+        <a href="javascript:" rel="nofollow" id="btn_close_map">关闭</a>
+    </div>
+</div>
+<div style="width: 270px; position: fixed; top: 170.5px; left: 42%;" id="pnl_poping" class="search_loading hide">
+    <img src="../images/icon/loader2Blue.gif"> <span>请稍候，正在为您实时查询楼盘信息</span>
+</div>
+
+<script language="javascript" src="../js/bower/search.handlebars.js" type="text/javascript"></script>
+<script language="javascript" src="../js/bower/search.snabbt.js" type="text/javascript"></script>
+<script language="javascript" src="../js/bower/search.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+
+    var has_subway = parseInt('1');//出现临近地铁
+    var options = $.parseJSON('[{"id":0,"name":"全部","selected":true},{"id":19548,"name":"写字楼","selected":false},{"id":19547,"name":"商住楼","selected":false},{"id":19550,"name":"创意园","selected":false},{"id":19549,"name":"共享办公","selected":false}]');
+    window.baseInfo = {
+        check_in: '2016-2-17',//默认开始时间
+        check_out: '2016-2-28',//默认结束时间
+        starDist: $.parseJSON('{\"9924\":{\"id\":9,\"mddid\":10099,\"star_tag\":9924,\"order_num\":4192,\"order_percent\":40.9},\"9925\":{\"id\":11,\"mddid\":10099,\"star_tag\":9925,\"order_num\":4268,\"order_percent\":41.64},\"9926\":{\"id\":10,\"mddid\":10099,\"star_tag\":9926,\"order_num\":1166,\"order_percent\":11.38},\"9927\":{\"id\":12,\"mddid\":10099,\"star_tag\":9927,\"order_num\":623,\"order_percent\":6.08}}'),
+        priceDist: $.parseJSON('[{\"order_num\":561,\"rate_level\":1,\"order_rate\":35},{\"order_num\":1251,\"rate_level\":2,\"order_rate\":77},{\"order_num\":915,\"rate_level\":3,\"order_rate\":57},{\"order_num\":1218,\"rate_level\":4,\"order_rate\":75},{\"order_num\":1617,\"rate_level\":5,\"order_rate\":100},{\"order_num\":1209,\"rate_level\":6,\"order_rate\":75},{\"order_num\":1136,\"rate_level\":7,\"order_rate\":70},{\"order_num\":821,\"rate_level\":8,\"order_rate\":51},{\"order_num\":590,\"rate_level\":9,\"order_rate\":36},{\"order_num\":451,\"rate_level\":10,\"order_rate\":28},{\"order_num\":363,\"rate_level\":11,\"order_rate\":22},{\"order_num\":274,\"rate_level\":12,\"order_rate\":17},{\"order_num\":172,\"rate_level\":13,\"order_rate\":11},{\"order_num\":186,\"rate_level\":14,\"order_rate\":12},{\"order_num\":171,\"rate_level\":15,\"order_rate\":11},{\"order_num\":99,\"rate_level\":16,\"order_rate\":6},{\"order_num\":98,\"rate_level\":17,\"order_rate\":6},{\"order_num\":73,\"rate_level\":18,\"order_rate\":5},{\"order_num\":73,\"rate_level\":19,\"order_rate\":5},{\"order_num\":87,\"rate_level\":20,\"order_rate\":5},{\"order_num\":47,\"rate_level\":21,\"order_rate\":3},{\"order_num\":56,\"rate_level\":22,\"order_rate\":3},{\"order_num\":39,\"rate_level\":23,\"order_rate\":2},{\"order_num\":33,\"rate_level\":24,\"order_rate\":2},{\"order_num\":39,\"rate_level\":25,\"order_rate\":2},{\"order_num\":20,\"rate_level\":26,\"order_rate\":1},{\"order_num\":25,\"rate_level\":27,\"order_rate\":2},{\"order_num\":25,\"rate_level\":28,\"order_rate\":2},{\"order_num\":17,\"rate_level\":29,\"order_rate\":1},{\"order_num\":25,\"rate_level\":30,\"order_rate\":2},{\"order_num\":8,\"rate_level\":31,\"order_rate\":0},{\"order_num\":10,\"rate_level\":32,\"order_rate\":1},{\"order_num\":4,\"rate_level\":33,\"order_rate\":0},{\"order_num\":5,\"rate_level\":34,\"order_rate\":0},{\"order_num\":11,\"rate_level\":35,\"order_rate\":1},{\"order_num\":5,\"rate_level\":36,\"order_rate\":0},{\"order_num\":11,\"rate_level\":37,\"order_rate\":1},{\"order_num\":11,\"rate_level\":38,\"order_rate\":1},{\"order_num\":9,\"rate_level\":39,\"order_rate\":1},{\"order_num\":5,\"rate_level\":40,\"order_rate\":0},{\"order_num\":3,\"rate_level\":41,\"order_rate\":0},{\"order_num\":5,\"rate_level\":42,\"order_rate\":0},{\"order_num\":4,\"rate_level\":43,\"order_rate\":0},{\"order_num\":3,\"rate_level\":44,\"order_rate\":0},{\"order_num\":2,\"rate_level\":45,\"order_rate\":0},{\"order_num\":1,\"rate_level\":46,\"order_rate\":0},{\"order_num\":0,\"rate_level\":47,\"order_rate\":0},{\"order_num\":2,\"rate_level\":48,\"order_rate\":0},{\"order_num\":0,\"rate_level\":49,\"order_rate\":0},{\"order_num\":0,\"rate_level\":50,\"order_rate\":0}]')
+    };
+</script>
+
+
+<!--<link rel="stylesheet" href="../css/home.css"/>-->

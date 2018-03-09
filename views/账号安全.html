@@ -1,0 +1,85 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+
+<!--公共的样式与JS-->
+
+<link href="../css/index/isettings.css" rel="stylesheet" type="text/css">
+<div class="wrapper clearfix">
+    <ul class="aside" id="aside">
+        <li><a href="我的信息.html"><i class="i1"></i>我的信息</a></li>
+        <li><a href="我的头像.html"><i class="i2"></i>我的头像</a></li>
+        <li><a href="绑定设置.html"><i class="i3"></i>绑定设置</a></li>
+        <li><a href="账号安全.html" class="on"><i class="i4"></i>账号安全</a></li>
+        <li style="display: none;">
+            <a href="#" class="slider"></a>
+        </li>
+    </ul>
+    <div class="content">
+        <div class="hd">
+            <strong>账号安全</strong>
+                                <span>
+                    资料完善度
+                    <div class="progress">
+                        <div class="num">20%</div>
+                        <div class="on" style="width:20%"></div>
+                    </div>
+                </span>
+        </div>
+
+        <div class="userpass">
+            <dl class="clearfix">
+                <dt>密码：</dt>
+                <dd>
+                    <a href="javascript:;" id="set-pw-btn">修改密码</a>
+
+                    <div id="set-pw">
+                        <p><span class="set-tips">人工找回密码请致电：<strong>400-166-6866</strong></span></p>
+
+                        <div class="ways">
+                            <a href="javascript:;" class="byphone disable"><i></i>
+
+                                <p>手机验证修改</p></a>
+                            <a href="javascript:;" class="bymail disable"><i></i>
+
+                                <p>邮箱验证修改</p></a>
+                        </div>
+
+
+                    </div>
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>绑定邮箱：</dt>
+                <dd>
+                    <a href="#/email/">设置邮箱</a>
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>绑定手机：</dt>
+                <dd>
+                    <a href="#/mobile/">设置手机</a>
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $('#set-pw-btn').on('click', function(){
+        if ($('#set-pw').is(':visible')) {
+            $('#set-pw').hide();
+        } else {
+            $('#set-pw').show();
+        }
+
+    });
+</script>

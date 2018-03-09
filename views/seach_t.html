@@ -1,0 +1,174 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+
+<!--<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>-->
+
+<!--公共的样式与JS-->
+
+
+<link rel="stylesheet" href="../css/index/toolbar-cleaned.css" />
+<div class="container">
+	<div class="crumb">
+		<span><img style="width:30px" src="../images/icon/logo1.png" alt=""/></span>
+		<a href="#" target="_blank"><strong class="title">成都办公楼</strong></a>
+		<i class="fa fa-angle-right" style="font-size: 1.5em"></i>
+		<a href="javascript:" data-crumb="all"><strong class="title">热门</strong></a>
+		<span data-stick="1" class="selected" style="display: none;">
+		<a class="item on" style="display:none;" href="javascript:void(0);">
+            <span data-suffix="" data-stick-text="from"></span><em data-btn="close"></em>
+		</a>
+		<a class="item on" style="display:none;" href="javascript:void(0);">
+			<span data-suffix="" data-stick-text="to"></span><em data-btn="close"></em>
+		</a>
+		<a class="item on" style="display:none;" href="javascript:void(0);">
+			<span data-suffix="" data-stick-text="go_time"></span><em data-btn="close"></em>
+		</a>
+		<a class="empty" data-btn="close_all" href="javascript:void(0);">清空条件</a>
+		</span>
+	</div>
+	<div class="sales-filter" data-filter-range="1">
+		<dl data-view-group="packMdd" data-search-group="to" class="filter-item">
+			<dt>区域：</dt>
+			<dd>
+				<style>
+					.mod-cruiseship .tab .on1 {
+						background-color: #8ef260;
+						color: #FFFFFF;
+					}
+				</style>
+				<div class="mod-cruiseship" data-tab-wrapper="1" data-indexb="1">
+					<div class="mod-hd">
+						<ul class="tab">
+							<li><a href="#" data-v="all" data-default="1" class="on">不限</a></li>
+							<li><a href="javascript:void(0);" data-i="0" class="">武侯区</a></li>
+							<li><a href="javascript:void(0);" data-i="1" class="">锦江区</a></li>
+							<li><a href="javascript:void(0);" data-i="2" class="">高新区</a></li>
+							<li><a href="javascript:void(0);" data-i="3" class="">青羊区</a></li>
+							<li><a href="javascript:void(0);" data-i="4" class="">成华区</a></li>
+							<li><a href="javascript:void(0);" data-i="5" class="">金牛区</a></li>
+							<li><a href="javascript:void(0);" data-i="6" class="">周边市区</a></li>
+							<li><a href="javascript:void(0);" data-i="7" class="">温江</a></li>
+						</ul>
+					</div>
+					<div class="mod-bd clearfix">
+						<div class="mod-content">
+							<ul class="hide" data-p="0" style="display: block;">
+								<li><a data-v="高升桥" href="#"><span>G</span>高升桥</a></li>
+								<li><a data-v="新南门" href="#"><span>G</span>新南门</a></li>
+								<li><a data-v="武侯祠大街" href="#"><span>G</span>武侯祠大街</a></li>
+							</ul>
+							<ul class="hide" data-p="1" style="display: none;">
+                                <li><a data-v="高升桥" href="#"><span>G</span>高升桥</a></li>
+                                <li><a data-v="新南门" href="#"><span>G</span>新南门</a></li>
+                                <li><a data-v="武侯祠大街" href="#"><span>G</span>武侯祠大街</a></li>
+                            </ul>
+							<ul class="hide" data-p="2" style="display: none;">
+                                <li><a data-v="高升桥" href="#"><span>G</span>高升桥</a></li>
+                                <li><a data-v="新南门" href="#"><span>G</span>新南门</a></li>
+                                <li><a data-v="武侯祠大街" href="#"><span>G</span>武侯祠大街</a></li>
+                            </ul>
+							<ul class="hide" data-p="3" style="display: none;">4</ul>
+							<ul class="hide" data-p="4" style="display: none;">5</ul>
+							<ul class="hide" data-p="5" style="display: none;">6</ul>
+							<ul class="hide" data-p="6" style="display: none;">7</ul>
+							<ul class="hide" data-p="7" style="display: none;">8</ul>
+						</div>
+					</div>
+				</div>
+			</dd>
+		</dl>
+		<dl data-view-group="dept" data-search-group="from" class="filter-item">
+			<dt>面积：</dt>
+			<dd>
+				<ul>
+					<li><a href="#" data-default="1" class="on" data-v="all">不限</a></li>
+					<li><a data-v="0:100" href="#">100平米以下</a></li>
+					<li><a data-v="100:150" href="#">100-150平米</a></li>
+					<li><a data-v="150:200" href="#">150-200平米</a></li>
+					<li><a data-v="200:300" href="#">200-300平米</a></li>
+					<li><a data-v="300:500" href="#">300-500平米</a></li>
+					<li><a data-v="500:1000"href="#">500-1000平米</a></li>
+					<li><a data-v="1000"    href="#">1000平米以上</a></li>
+					<li>
+						<input type="text" style="width: 40px" />
+					</li>
+					<li>-</li>
+					<li>
+						<input type="text" style="width: 40px" />
+					</li>
+					<li class="hide"><a href="#" data-v="?:?">确定</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl data-view-group="deptTime" data-search-group="go_time" class="filter-item">
+			<dt>租金：</dt>
+			<dd>
+				<ul>
+					<li><a data-default="1" class="on" data-v="all" href="#">不限</a></li>
+					<li><a data-v="0:30" href="#">30元以下</a></li>
+					<li><a data-v="30:60" href="#">30-60元</a></li>
+					<li><a data-v="60:90" href="#">60-90元</a></li>
+					<li><a data-v="90:120" href="#">90-120元</a></li>
+					<li><a data-v="120:150" href="#">120-150元</a></li>
+					<li><a data-v="150" href="#">150元以上</a></li>
+					<li>
+						<input type="text" style="width: 40px" />
+					</li>
+					<li>-</li>
+					<li>
+						<input type="text" style="width: 40px" />
+					</li>
+					<li class="hide"><a href="#" data-v="#">确定</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<script type="text/javascript" src="../js/bower/sales-pagination-Filter.1445226196.js"></script>
+<script type="text/javascript">
+    //配置搜索初始条件
+    var FilterParamList = {
+        "to": "all",
+        "from": "all",
+        "go_time": "all"
+    };
+    var globalListTotal = parseInt("125");
+    var globalGroup = parseInt("1");
+    var globalShowMddHead = parseInt("");
+    $(function () {
+        var filterRunner = new FilterRunner();
+        filterRunner.injectDefaultParams(FilterParamList);
+    });
+</script>
+<script type="text/javascript">
+    /*这一部分是搜索条件区域和地铁滑动切换功能*/
+    $(function () {
+        $('[data-tab-wrapper]').find('[data-i]').on('mouseenter', function () {
+            var self = $(this), index = self.data('i'), wrapper = self.closest('[data-tab-wrapper]'),
+                    indexB = wrapper.data('indexb') || "";
+            wrapper.find('[data-i]').removeClass('on' + indexB).eq(index).addClass('on' + indexB).end().end()
+                    .find('[data-p]').hide().eq(index).show();
+        });
+        $('[data-change="btn"]').on('click', function () {
+            var self = $(this),
+                    $mod = self.closest('[data-change="mod"]'),
+                    step = 1 * $mod.find('[data-change-step]').data('changeStep'),
+                    len = $mod.find('[data-change="list"]').length,
+                    colNum = 4, staticNum = $mod.find('[data-change-step] li').not('[data-change]').length;
+
+            var $item = $mod.find('[data-change="list"]').hide();
+            for (var i = 0; i < colNum - staticNum; i++) {
+                $item = $item.eq((++step) % len).show().end()
+            }
+            $item.closest('ul').data('changeStep', step);
+        });
+    });
+</script>

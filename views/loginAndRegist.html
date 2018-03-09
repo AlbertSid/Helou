@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://passport.mafengwo.cn/loginAndRegist.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>帐号注册 - 好楼网</title>
+    <link rel="stylesheet" href="../css/module/font-awesome.min.css"/>
+    <link href="loginAndRegist/login_v2.css" rel="stylesheet" type="text/css">
+    <script src="loginAndRegist/m.statistics.js" type="text/javascript"></script>
+    <style type="text/css">
+        i.fa {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+<!--这是登录和注册页面，独立于其他页面-->
+<div class="wrapper">
+    <div class="container">
+        <a href="#" title="返回首页" class="logo">好楼网</a>
+
+        <div class="signup-forms">
+
+            <div class="signup-box" id="_j_signup_box">
+                <div class="inner">
+                    <form action="##" method="post" id="_j_signup_form">
+                        <input type="hidden" name="token" value="8f839c574e72d839067617e55d2e94f7">
+
+                        <div class="form-field">
+                            <input name="passport" type="text" placeholder="您的手机号码" autocomplete="off"
+                                   data-type="mobile" data-verification-name="手机号码"
+                                   class="verification[required,maxSize[50],custom[mobile],funcCall[checkPassport]]"
+                                   value="">
+
+                            <div class="info-tip">
+                                <h5>温馨提示</h5>
+
+                                <p>非大陆手机号码请在手机号码前加国际区号。
+                                    <br>例：+886912900000</p>
+                            </div>
+                            <div class="err-tip"></div>
+                        </div>
+                        <div class="form-link">
+                            <a href="#">使用邮箱注册</a>
+                        </div>
+                        <div class="submit-btn">
+                            <button type="submit">立即注册</button>
+                        </div>
+                    </form>
+                    <div class="agreement">
+                        注册视为同意<a target="_blank" href="#">《好楼网用户使用协议》</a>
+                    </div>
+                    <div class="connect">
+                        <p class="hd">用合作网站账户直接登录</p>
+
+                        <div class="bd">
+                            <a href="/weibo" class="weibo"><i class="fa fa-weibo"></i>新浪微博</a>
+                            <a href="/qq" class="qq"><i class="fa fa-qq"></i>QQ</a>
+                            <a href="/wechat" class="weixin"><i class="fa fa-weixin"></i>微信</a>
+                            <a href="/renren" class="renren"><i class="fa fa-renren"></i>人人网</a>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-link">
+                    已经注册?<a href="#">马上登录</a>
+                </div>
+            </div>
+
+            <div class="login-box" id="_j_login_box">
+                <div class="inner">
+                    <form action="#" method="post" id="_j_login_form">
+                        <div class="form-field">
+                            <input name="passport" type="text" placeholder="您的邮箱/手机号" autocomplete="off"
+                                   data-verification-name="帐号"
+                                   class="verification[required,maxSize[50],funcCall[checkPassport],funcCall[checkShowCode]"
+                                   value="">
+
+                            <div class="err-tip"></div>
+                        </div>
+                        <div class="form-field">
+                            <input name="password" type="password" placeholder="您的密码" autocomplete="off"
+                                   data-verification-name="密码" class="verification[required,minSize[4],maxSize[50]]">
+
+                            <div class="err-tip"></div>
+                        </div>
+                        <div class="form-field hide">
+                            <div class="clearfix">
+                                <a href="##" class="vcode-send verify-code-send"><img
+                                        src="loginAndRegist/verifyCode"></a>
+                                <input name="code" type="text" placeholder="验证码" autocomplete="off"
+                                       data-verification-name="验证码"
+                                       class="vcode-input verification[funcCall[checkCode]]">
+                            </div>
+                            <div class="err-tip clearfix"></div>
+                        </div>
+                        <div class="form-link"><a href="#/forget">忘记密码</a></div>
+                        <div class="submit-btn">
+                            <button>登 录</button>
+                        </div>
+                    </form>
+                    <div class="connect">
+                        <p class="hd">用合作网站账户直接登录</p>
+
+                        <div class="bd">
+                            <a href="/weibo" class="weibo"><i class="fa fa-weibo"></i>新浪微博</a>
+                            <a href="/qq" class="qq"><i class="fa fa-qq"></i>QQ</a>
+                            <a href="/wechat" class="weixin"><i class="fa fa-weixin"></i>微信</a>
+                            <a href="/renren" class="renren"><i class="fa fa-renren"></i>人人网</a>
+
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-link">
+                    还没有帐号?<a href="/regist.html#">马上注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery-1.8.1.min.js" type="text/javascript"></script>
+
+<script src="loginAndRegist/jquery.placeholder.js" type="text/javascript"></script>
+
+<script src="loginAndRegist/mfw.verification.js" type="text/javascript"></script>
+
+<div class="fullscreen-bg" style="background-image: url(loginAndRegist/11.jpg);">
+    <img src="loginAndRegist/11.jpg" style="width: 1920px; height: auto;">
+</div>
+</body>
+
+</html>

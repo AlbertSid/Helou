@@ -1,0 +1,18 @@
+{
+  "name": "haolou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react"
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1"
+  },
+  "author": "itattoo",
+  "license": "ISC"
+}

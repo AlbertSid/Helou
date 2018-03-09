@@ -1,0 +1,268 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+<!--公共的样式与JS-->
+
+
+
+<link href="../css/index/isettings.css" rel="stylesheet" type="text/css">
+<link href="../css/index/jquery.Jcrop.css" rel="stylesheet" type="text/css">
+
+<div class="wrapper clearfix">
+    <ul class="aside" id="aside">
+        <li><a href="我的信息.html"><i class="i1"></i>我的信息</a></li>
+        <li><a href="我的头像.html" class="on"><i class="i2"></i>我的头像</a></li>
+        <li><a href="绑定设置.html"><i class="i3"></i>绑定设置</a></li>
+        <li><a href="账号安全.html"><i class="i4"></i>账号安全</a></li>
+        <li style="display: none;">
+            <a href="#" class="slider"></a>
+        </li>
+    </ul>
+    <div class="content">
+        <div class="hd">
+            <strong>我的头像</strong>
+                                <span>
+                    资料完善度
+                    <div class="progress">
+                        <div class="num">20%</div>
+                        <div class="on" style="width:20%"></div>
+                    </div>
+                </span>
+        </div>
+
+        <div class="userlogo">
+            <div class="avatar" id="_j_avatar_box">
+                <img src="../images/icon/pp120.gif" width="120" height="120" border="0">
+
+                <div class="progress" id="percentContent" style="display:none;">
+                    <div class="bar">
+                        <div class="num" id="percentNum">0%</div>
+                        <div class="on" style="width:0%" id="uploadPercent"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-sub">
+                <div class="btn" id="_j_upload" style="position: relative; z-index: 1;">选择图片</div>
+                支持jpg、png、jpeg、bmp，图片大小5M以内
+                <div id="html5_1a4hanvj7naqfn4ne16eotjj3_container" class="moxie-shim moxie-shim-html5"
+                     style="position: absolute; top: 0px; left: 0px; width: 120px; height: 36px; overflow: hidden; z-index: 0;">
+                    <input id="html5_1a4hanvj7naqfn4ne16eotjj3" type="file"
+                           style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                           accept="image/jpeg,image/png,image/gif"></div>
+            </div>
+            <div class="editor" id="_j_crop_box">
+                <div class="clearfix">
+                    <div class="plan">
+                        <img src="../images/icon/pp600.gif">
+                    </div>
+                    <div class="preview">
+                        <p>预览</p>
+                        <dl class="large">
+                            <dt><img src="../images/icon/pp600.gif"></dt>
+                            <dd>120*120</dd>
+                        </dl>
+                        <dl class="normal">
+                            <dt><img src="../images/icon/pp600(1).gif"></dt>
+                            <dd>48*48</dd>
+                        </dl>
+                        <dl class="small">
+                            <dt><img src="../images/icon/pp600(1).gif"></dt>
+                            <dd>16*16</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="btns">
+                    <a href="#" class="btn1">保存</a>
+                    <a href="#" class="btn2">取消</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script language="javascript" src="../js/bower/plupload.full.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var boundX = 0, boundY = 0;
+        var avatar;
+        var avatarBox = $('#_j_avatar_box');
+        var cropApi, cropX = 0, cropY = 0, cropWidth = 0, cropHeight = 0;
+        var cropBox = $('#_j_crop_box');
+        var updatePreview = function (crop) {
+            if (parseInt(crop.w) > 0) {
+                var largeX = 120 / crop.w;
+                var largeY = 120 / crop.h;
+                var normalX = 48 / crop.w;
+                var normalY = 48 / crop.h;
+                var smallX = 16 / crop.w;
+                var smallY = 16 / crop.h;
+
+                cropX = crop.x;
+                cropY = crop.y;
+                cropWidth = crop.w;
+                cropHeight = crop.h;
+
+                cropBox.find('.preview .large img').css({
+                    width: Math.round(largeX * boundX),
+                    height: Math.round(largeY * boundY),
+                    marginLeft: -Math.round(largeX * crop.x),
+                    marginTop: -Math.round(largeY * crop.y)
+                });
+                cropBox.find('.preview .normal img').css({
+                    width: Math.round(normalX * boundX),
+                    height: Math.round(normalY * boundY),
+                    marginLeft: -Math.round(normalX * crop.x),
+                    marginTop: -Math.round(normalY * crop.y)
+                });
+                cropBox.find('.preview .small img').css({
+                    width: Math.round(smallX * boundX),
+                    height: Math.round(smallY * boundY),
+                    marginLeft: -Math.round(smallX * crop.x),
+                    marginTop: -Math.round(smallY * crop.y)
+                });
+            }
+        };
+        var avatarUploader = new plupload.Uploader({
+            runtimes: 'html5,flash',
+            browse_button: '_j_upload',
+            flash_swf_url: '/swf/Moxie.swf',
+            multi_selection: false,
+            filters: [{
+                title: 'Image files',
+                extensions: 'jpg,jpeg,png,gif'
+            }],
+            url: '/home/setting.php/uploadAvatar',
+            resize: {
+                width: 2048,
+                quality: 100
+            },
+            multipart: 'form-data'
+        });
+        avatarUploader.init();
+        avatarUploader.bind('FilesAdded', function () {
+            if (typeof cropApi !== 'undefined') {
+                cropApi.destroy();
+                cropBox.find('.btns a').addClass('disable');
+            }
+            cropBox.find('.plan img,.preview dl img')
+                    .removeAttr('style')
+                    .attr('src', 'http://images.mafengwo.net/images/pp600.gif');
+            cropX = cropY = cropWidth = cropHeight = 0;
+            avatarUploader.start();
+        });
+        avatarUploader.bind('UploadProgress', function (up, file) {
+            var data = {
+                'width': file.percent + '%'
+            };
+            $('#uploadPercent').css(data);
+            $('#percentNum').text(file.percent + '%');
+        });
+        avatarUploader.bind('BeforeUpload', function () {
+            avatarUploader.disableBrowse(true);
+            $('#_j_upload').text('正在上传..').addClass('disable');
+            $('#percentContent').show();
+            $('#percentNum').text('0%');
+            var data = {
+                'width': '0%'
+            };
+            $('#uploadPercent').css(data);
+        });
+        avatarUploader.bind('FileUploaded', function (up, file, response) {
+            $('#percentContent').hide();
+            var data = $.parseJSON(response.response);
+            if (!$.isEmptyObject(data)) {
+                avatar = data.id;
+                $('<img />')
+                        .on('load', function () {
+                            cropBox.slideDown(700);
+                            cropBox.find('.preview dl img').attr('src', data.url);
+                            cropBox.find('.plan img')
+                                    .attr('src', data.url)
+                                    .Jcrop({
+                                        boxWidth: 330,
+                                        onChange: updatePreview,
+                                        onSelect: updatePreview,
+                                        aspectRatio: 1
+                                    }, function () {
+                                        cropApi = this;
+                                        var bounds = cropApi.getBounds();
+                                        boundX = bounds[0];
+                                        boundY = bounds[1];
+
+                                        var X1 = (boundX / 2) - 115;
+                                        var Y1 = (boundY / 2) - 115;
+                                        if (X1 < 0) X1 = 0;
+                                        if (Y1 < 0) Y1 = 0;
+                                        var X2 = (boundX / 2) + 115;
+                                        var Y2 = (boundY / 2) + 115;
+                                        if (X2 > boundX) X2 = boundX;
+                                        if (Y2 > boundY) Y2 = boundY;
+
+                                        if (X2 - X1 > Y2 - Y1) {
+                                            X1 = (boundX / 2) - (Y2 - Y1) / 2;
+                                            X2 = (boundX / 2) + (Y2 - Y1) / 2;
+                                        } else if (X2 - X1 < Y2 - Y1) {
+                                            Y1 = (boundY / 2) - (X2 - X1) / 2;
+                                            Y2 = (boundY / 2) + (X2 - X1) / 2;
+                                        }
+                                        cropApi.animateTo([X1, Y1, X2, Y2]);
+
+                                        cropBox.find('.btns a').removeClass('disable');
+                                    });
+                        })
+                        .attr('src', data.url);
+            } else {
+                M.closure(function (require) {
+                    var Alert = require('dialog/alert');
+                    Alert.pop('图片上传失败，请稍候再试');
+                }, true);
+            }
+            avatarUploader.disableBrowse(false);
+            $('#_j_upload').text('选择图片').removeClass('disable');
+        });
+
+        cropBox.delegate('.btns .btn1', 'click', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            if (self.hasClass('disable') || cropWidth == 0 || cropHeight == 0) {
+                return false;
+            }
+            cropApi.disable();
+            cropBox.find('.btns a').addClass('disable');
+            $.post('/home/setting.php/cropAvatar', {
+                x: cropX,
+                y: cropY,
+                width: cropWidth,
+                height: cropHeight,
+                avatarwidth: boundX,
+                avatarheight: boundY,
+                avatar: avatar
+            }, function (data) {
+                if (data) {
+                    avatarBox.find('img').attr('src', data);
+                    cropApi.destroy();
+                    cropBox.slideUp(700);
+                } else {
+                    cropApi.enable();
+                    cropBox.find('.btns a').removeClass('disable');
+                    M.closure(function (require) {
+                        var Alert = require('dialog/alert');
+                        Alert.pop('头像裁剪失败，请稍候再试');
+                    }, true);
+                }
+            });
+        }).delegate('.btns .btn2', 'click', function (e) {
+            e.preventDefault();
+            cropApi.destroy();
+            cropBox.slideUp(700);
+        });
+    });
+</script>

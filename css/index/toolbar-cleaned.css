@@ -1,0 +1,170 @@
+@charset "UTF-8";
+.container {
+    width: 1000px;
+    margin: 0 auto
+}
+
+.crumb {
+    padding: 15px 10px;
+    color: #999;
+    line-height: 26px;
+    border-bottom: 1px solid #e8e8e8
+}
+
+.crumb strong.title {
+    font-size: 16px;
+    color: #333
+}
+
+.crumb a {
+    color: #333
+}
+
+.selected {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: 2px;
+    *vertical-align: middle
+}
+
+.selected .item {
+    display: inline-block;
+    margin-right: 7px;
+    border: 1px solid #e8e8e8;
+    line-height: 24px;
+    color: #666;
+    padding: 0 30px 0 5px;
+    line-height: 24px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle
+}
+
+.selected .item em {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: url(../../images/icon/sales-list-sprites2.png) no-repeat 0 0;
+    overflow: hidden;
+    margin: 0 !important
+}
+
+.selected .item:hover, .selected .item.on {
+    color: #ff9d00;
+    border-color: #ff9d00;
+    text-decoration: none
+}
+
+.selected .item:hover em, .selected .item.on em {
+    background-color: #ff9d00;
+    background-position: -30px 0
+}
+
+.selected .empty {
+    display: inline-block;
+    line-height: 26px;
+    color: #ff9d00;
+    vertical-align: middle
+}
+
+.sales-filter {
+    margin-bottom: 15px;
+    background-color: #fff
+}
+
+.sales-filter .filter-item {
+    padding: 5px 0 5px 85px;
+    border-bottom: 1px solid #e8e8e8;
+    line-height: 20px;
+    *zoom: 1
+}
+
+.sales-filter .filter-item:after, .sales-filter dd:after {
+    content: '';
+    clear: both;
+    display: block;
+    overflow: hidden
+}
+
+.sales-filter dt {
+    float: left;
+    margin-left: -85px;
+    width: 70px;
+    text-align: right;
+    line-height: 32px;
+    white-space: nowrap
+}
+
+.sales-filter dd {
+    *zoom: 1
+}
+
+.sales-filter ul {
+    float: left;
+    width: 820px;
+    overflow: hidden
+}
+
+.sales-filter li {
+    float: left;
+    display: inline;
+    padding: 5px 10px 5px 0
+}
+
+.sales-filter li a {
+    height: 20px;
+    color: #333;
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+    *letter-spacing: -1px
+}
+
+.sales-filter li a:hover {
+    text-decoration: none;
+    color: #ff9d00
+}
+
+.sales-filter li .on {
+    background-color: #ff9d00;
+    color: #fff !important
+}
+.filter-toggle {
+    text-align: center;
+    margin-top: -1px
+}
+
+.filter-toggle a {
+    display: block;
+    border-top: 1px solid #ff9d00;
+    position: relative;
+    color: #666;
+    line-height: 18px;
+    *zoom: 1
+}
+
+.filter-toggle span {
+    color: #ff9d00;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 35px 0 15px;
+    border: 1px solid #ff9d00;
+    border-top: 0;
+    background-color: #fff;
+    position: relative;
+    top: -1px
+}
+
+.filter-toggle i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: 11px;
+    height: 10px;
+    background: url(/images/sales/sales-list-sprites2.png) no-repeat 0 -45px;
+    overflow: hidden
+}

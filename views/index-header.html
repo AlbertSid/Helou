@@ -1,0 +1,150 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+<!--公共的样式与JS-->
+
+
+<link rel="stylesheet" href="../css/module/header.css"/>
+<div id="header" xmlns="http://www.w3.org/1999/html">
+    <div class="mfw-header">
+        <div class="header-wrap clearfix">
+            <div class="head-logo">
+                <a class="mfw-logo" title="好楼网" ui-sref="seach"></a>
+            </div>
+            <!--ng点击切换视图开始-->
+            <ul class="head-nav">
+                <li class="head-nav-active"><a ui-sref="home">首页</a></li>
+                <li><a ui-sref="xzl" title="写字楼">写字楼</a></li>
+                <li><a ui-sref="gxbg" title="共享办公">共享办公</a></li>
+                <li><a ui-sref="xp" title="新盘">新盘</a></li>
+                <li><a ui-sref="ers" title="二手">二手</a></li>
+            </ul>
+            <!--ng点击切换视图结束-->
+            <div class="head-search">
+                <div class="head-search-wrapper">
+                    <div class="head-searchform">
+                        <form action="#" method="get">
+                            <input name="q" type="text" id="head-search-word" autocomplete="off">
+                            <a role="button" href="javascript: " class="icon-search fa fa-search" id="_j_search_link "></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--未登录状态-->
+            <div class="login-out" style="display: none ">
+                <a class="fa fa-weibo " href="#" title="微博登录 "></a>
+                <a class="fa fa-qq " href="#" title="QQ登录 "></a>
+                <a title="登录好楼 " href="#" bata-href="../views/login.html" bata-wh="580px,292px" onclick="iframe(this)">登录</a>
+                <span class="split ">|</span>
+                <a title="注册帐号" href="../views/loginAndRegist.html" target="_blank">注册</a>
+            </div>
+
+            <!--未登录状态-->
+            <!--登录后的状态-->
+            <div class="login-info" >
+                <div class="head-user" id="_j_head_user">
+                    <a class="drop-trigger " href="#" title="微博名字 " rel="nofollow ">
+                        <div class="user-image ">
+                            <img src="http://images.mafengwo.net/images/pp32.gif " height="32 " width="32 " alt="微博名字 ">
+                        </div>
+                        <i class="icon-caret-down "></i>
+                    </a>
+                </div>
+                <div class="head-msg " id="_j_head_msg">
+                    <a class="drop-trigger " href="javascript: " rel="nofollow ">
+                        <i class="fa fa-bell-o "></i> 消息
+                        <i class="icon-caret-down "></i>
+                        <span class="head-msg-new hide " style="display: none; "></span>
+                    </a>
+                </div>
+                <div class="head-daka daka-complete">
+                    <a class="head-btn-daka " href="javascript: " rel="nofollow " title="打卡 " data-japp="daka ">打卡</a>
+                    <a class="btn head-btn-daka " href="javascript: " rel="nofollow " id="head-btn-daka-active "
+                       title="打卡推荐 " data-japp="daka ">打卡推荐</a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-group">
+            <!-- 消息下拉菜单 begin -->
+            <div class="dropdown-menu dropdown-msg hide" id="_j_msg_panel" style="z-index: 10; display: none; ">
+                <ul>
+                    <li><a target="_blank " rel="nofollow " href="#">私信</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">文章消息</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">特别好友动态</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">好友互动</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">小组消息</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">系统通知</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">新鲜事</a></li>
+                    <li><a target="_blank " rel="nofollow " href="#">问答消息</a></li>
+                </ul>
+            </div>
+            <!-- 消息下拉菜单 end -->
+            <!-- 用户下拉菜单 begin -->
+            <div class="dropdown-menu dropdown-user hide" id="_j_user_panel" data-cs-t="user_nav "
+                 style="display: none; ">
+                <div class="user-info ">
+                    <a class="level " href="#" target="_blank" title="我的等级" rel="nofollow" data-cs-p="level "><b>LV.100</b></a>
+                    <a class="coin " href="#" target="_blank" title="我的好楼" id="head-my-coin" rel="nofollow "
+                       data-cs-p="coin ">楼层 110</a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#" target="_blank " title="我的好楼网 " rel="nofollow " data-cs-p="wo ">
+                            <i class="fa fa-home "></i>我的好楼网</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank " class="drop-write " title="写游记 " rel="nofollow "
+                           data-cs-p="writenotes ">
+                            <i class="fa fa-file-o "></i>写游记</a>
+                    </li>
+                    <li data-cs-t="足迹_首页 " data-cs-p="我的足迹 ">
+                        <a href="#" target="_blank " title="我的足迹 " rel="nofollow ">
+                            <i class="fa fa-globe "></i>我的足迹</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank " title="我的问答 " rel="nofollow " data-cs-p="wenda ">
+                            <i class="fa fa-question-circle "></i>我的问答</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank " title="我的好友 " rel="nofollow " data-cs-p="friend ">
+                            <i class="fa fa-users "></i>我的好友</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的收藏 " target="_blank " rel="nofollow " data-cs-p="collect ">
+                            <i class="fa fa-bookmark-o "></i>我的收藏</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的订单 " target="_blank " rel="nofollow " data-cs-p="order ">
+                            <i class="fa fa-database "></i>我的订单</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的优惠券 " target="_blank " rel="nofollow " data-cs-p="coupon ">
+                            <i class="fa fa-money "></i>我的优惠券</a>
+                    </li>
+                    <li>
+                        <a href="#" title="我的设置 " target="_blank " rel="nofollow " data-cs-p="settings ">
+                            <i class="fa fa-cog "></i>设置</a>
+                    </li>
+                    <li>
+                        <a href="#" title="退出登录 " rel="nofollow ">
+                            <i class="fa fa-sign-out " data-cs-p="logout "></i>退出</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 用户下拉菜单 end -->
+        </div>
+        <!--登录后的状态-->
+        <div class="shadow "></div>
+    </div>
+</div>
+<script type="text/javascript " src="../js/bower/header.js "></script>
+
+<!--为了方便单独查看这个部分，加载的下面css，开发可以删除-->
+<link rel="stylesheet " href="../css/home.css "/>

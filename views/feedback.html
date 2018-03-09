@@ -1,0 +1,96 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+
+<!--公共的样式与JS-->
+
+
+
+
+<!--下面是意见反馈-->
+<title>意见反馈></title>
+<style>
+    .FeedBackA {
+        width: 569px;
+        padding: 22px 28px;
+        background-color: #fff;
+    }
+
+    .FeedBackA .FeedTit {
+        font-size: 24px;
+        color: #666;
+        font-weight: normal;
+    }
+
+    .FeedBackA .FeedDesc {
+        font-size: 14px;
+        color: #666;
+        line-height: 22px;
+        padding: 8px 0 15px;
+        font-weight: normal;
+    }
+
+    .FeedBackA .FeedForm {
+        font-size: 14px;
+        color: #582e09;
+    }
+
+    textarea {
+        overflow: auto;
+    }
+
+    .FeedBackA #feedback-textarea {
+        border: 1px solid #aebacd;
+        font-size: 14px;
+        height: 150px;
+        line-height: 20px;
+        margin-bottom: 10px;
+        padding: 4px;
+        resize: none;
+        width: 480px;
+        color: #666;
+    }
+
+    .FeedBackA .FeedAct a {
+        width: 76px;
+        height: 28px;
+        display: inline-block;
+        font-size: 14px;
+        color: #fff;
+        background-color: #fcb309;
+        font-weight: bold;
+        text-align: center;
+        line-height: 28px;
+        border: 0;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    .FeedBackA .FeedAct .err {
+        font-size: 14px;
+        color: #f00;
+        margin-left: 10px;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+<div class="FeedBackA">
+    <div class="FeedTit">意见反馈</div>
+    <div class="FeedDesc">我们倾听你的声音</div>
+    <div class="FeedForm" id="feedback-form">
+        <textarea id="feedback-textarea" placeholder="欢迎提出宝贵的意见和建议。抱歉我们无法逐一回复，但我们会认真阅读，你的支持是对我们最大的鼓励和帮助"></textarea>
+    </div>
+    <div class="FeedAct" id="feedback-act">
+        <a href="#" class="_j_submitfeedback" data-url="">提 交</a>
+        <span id="feedback-errinfo" class="err hide">内容不能为空！</span>
+    </div>
+</div>

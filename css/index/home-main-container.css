@@ -1,0 +1,330 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden
+}
+
+.container {
+    width: 1000px;
+    margin: 20px auto
+}
+
+.mod-hd {
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 30px
+}
+
+.mod-hd h2 {
+    float: left;
+    width: 170px;
+    font-size: 24px;
+    font-weight: normal
+}
+
+.mod-hd h2 span {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #999
+}
+
+.mod-hd .more {
+    float: right;
+    font-size: 12px;
+    color: #999
+}
+
+.mod-hd .more i {
+    width: 14px;
+    height: 14px;
+    background: url(../../images/icon/change.png);
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle
+}
+
+.mod-hd .tab {
+    float: left;
+    font-size: 16px
+}
+
+.mod-hd .tab li {
+    float: left;
+    display: inline;
+    margin-right: 20px
+}
+
+.mod-hd .tab a {
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 2px;
+    color: #333
+}
+
+.mod-hd .tab a:hover {
+    text-decoration: none
+}
+
+.sales-cards {
+    margin: 0 -15px 0 0;
+    *zoom: 1
+}
+
+.sales-cards .item {
+    float: left;
+    width: 266px;
+    display: inline;
+    margin: 0 15px 15px 0
+}
+
+.sales-cards a {
+    display: block;
+    font-size: 14px;
+    position: relative;
+    height: 243px
+}
+
+.sales-cards a:hover {
+    text-decoration: none;
+    background-color: #f8f8f8
+}
+
+.sales-cards .image {
+    height: 151px;
+    background: #e5e5e5 url(/images/sales/logo-white.png) no-repeat center center;
+    text-align: center;
+    position: relative
+}
+
+.sales-cards .caption {
+    border: 1px solid #f1f1f1;
+    padding: 5px 10px 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 75px;
+    background-color: #fff;
+    -webkit-transition: height .2s ease-in-out .1s;
+    transition: height .2s ease-in-out .1s
+}
+
+.sales-cards h3 {
+    height: 40px;
+    margin-bottom: 6px;
+    font-weight: normal;
+    color: #000;
+    line-height: 21px;
+    overflow: hidden;
+    -webkit-transition: height .2s ease-in-out .1s;
+    transition: height .2s ease-in-out .1s
+}
+
+.sales-cards a:hover .caption {
+    height: 115px;
+    background-color: #f9f9f9
+}
+
+.sales-cards a:hover h3 {
+    height: 80px
+}
+
+.sales-cards .price {
+    color: #ff8a00
+}
+
+.sales-cards .price b {
+    font-size: 22px
+}
+
+.sales-cards .price-original {
+    color: #999;
+    text-decoration: line-through
+}
+
+.deal-mark {
+    position: absolute;
+    left: -5px;
+    top: 0;
+    height: 20px;
+    padding: 0 6px;
+    line-height: 20px;
+    color: #fff;
+    background-color: #ff5096;
+    font-size: 12px
+}
+
+.deal-mark i {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    border-top: 5px solid #bf2462;
+    border-left: 5px dashed transparent;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0
+}
+
+.deal-mark em {
+    position: absolute;
+    right: -6px;
+    top: 0;
+    border-top: 20px solid #ff5096;
+    border-right: 6px dashed transparent;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden
+}
+
+.deal-mark span {
+    font-size: 14px
+}
+
+.dm4 {
+    background-color: #2d7dff
+}
+
+.dm4 em {
+    border-top-color: #2d7dff
+}
+
+.dm4 i {
+    border-top-color: #114592
+}
+
+.mod-promo, .mod-place, .mod-cruiseship {
+    margin-bottom: 30px
+}
+
+.mod-promo .mod-hd h2 {
+    width: auto;
+    color: #fb6720
+}
+
+.mod-promo .item {
+    width: 238px
+}
+
+.mod-promo .item a {
+    height: 234px
+}
+
+.mod-promo .image {
+    height: 134px
+}
+
+.mod-promo .item h3 {
+    margin-bottom: 15px
+}
+
+.mod-promo .caption {
+    padding-bottom: 18px
+}
+
+.mod-promo .discount {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    background-color: #ff6155;
+    font-size: 14px;
+    color: #fff;
+    font-style: italic
+}
+
+.mod-promo .discount b {
+    font-size: 18px
+}
+
+.mod-promo .discount i {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-top: 4px solid #7e1811;
+    border-left: 4px dashed transparent;
+    border-bottom: 4px dashed transparent;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0
+}
+
+.mod-bd .mod-content {
+    float: right;
+    width: 830px
+}
+
+.place-around .mod-hd h2 {
+    color: #985fb4
+}
+
+.nav-hot {
+    float: left;
+    width: 155px;
+    height: 499px;
+    position: relative
+}
+
+.nav-hot-list {
+    position: relative;
+    z-index: 2
+}
+
+.nav-hot h3 {
+    margin-bottom: 10px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+    font-weight: normal
+}
+
+.nav-hot ul {
+    width: 180px;
+    line-height: 26px;
+    font-size: 14px;
+    margin-left: -10px;
+    *zoom: 1
+}
+
+.nav-hot li {
+    float: left;
+    width: 88px;
+    margin: 10px 0
+}
+
+.nav-hot li a {
+    color: #666;
+    display: inline-block;
+    padding: 0 10px
+}
+
+.nav-hot li a:hover {
+    color: #ff8a00;
+    background-color: #f9f9f9;
+    text-decoration: none
+}
+
+.nav-hot .bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 155px;
+    height: 224px;
+    background: url(/images/sales/nav-hot-inset1.png) no-repeat
+}
+
+.bn-side {
+    float: left;
+    width: 155px
+}
+
+.mod-cruiseship .mod-hd h2 {
+    color: #2773ff
+}
+
+.row-banner {
+    margin: 20px 0;
+    text-align: center
+}

@@ -1,0 +1,213 @@
+<!--公共的样式与JS-->
+<!--这里方便查看才加上的。开发时可以删除这部分，放在公共模块-->
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/module/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/module/header.css"/>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/haolou.itattoo.js"></script>
+<script type="text/javascript" src="../js/M.protrotype.js"></script>
+<!--公共的样式与JS-->
+
+
+<link href="../css/index/message.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/bower/jquery.tmpl-js+jquery.jgrowl.min-js.js"></script>
+<div class="mfw_main w1000">
+    <h1>
+        系统消息
+    </h1>
+
+    <div class="list" id="_j_listcnt">
+        <div class="clearfix msgitem first last" data-msgtype="0">
+            <div class="msg_logocnt bgi sysmsglogo"><i class="new_icon"></i></div>
+            <div class="msg_infocnt">
+                <h2>
+                    <span class="title"><strong>系统通知</strong></span>
+                    <span class="time">2015-12-30 09:59:24</span>
+                </h2>
+
+                <div class="content"><a href="http://www.mafengwo.cn/home/userlogo.php" target="_blank">上传个头像，增长积分，可以下载更多旅游攻略！</a>
+                </div>
+            </div>
+            <a class="msg_closer _j_msg_closer bgi" data-msgid="1521945950739734"></a>
+        </div>
+
+    </div>
+    <div class="meg_page"></div>
+</div>
+<script type="text/x-jquery-tmpl" id="_j_pagination">
+{{if pageTotal > 1}}
+{{if currPage > 1}}
+<a class="_j_pageitem" role="button" tabindex="0" data-page="${currPage - 1}">前一页</a>
+{{/if}}
+{{if indexers[0] > 1}}
+<a class="_j_pageitem" role="button" tabindex="0" data-page="1">1...</a>
+{{/if}}
+{{each(i, index) indexers}}
+    {{if index == currPage}}
+<a class="on">${index}</a>
+    {{else}}
+<a class="_j_pageitem" role="button" tabindex="0" data-page="${index}">${index}</a>
+    {{/if}}
+{{/each}}
+{{if indexers[indexers.length-1] < pageTotal}}
+<a class="_j_pageitem" role="button" tabindex="0" data-page="${pageTotal}">...${pageTotal}</a>
+{{/if}}
+{{if currPage < pageTotal}}
+<a class="_j_pageitem" data-page="${currPage + 1}">后一页</a>
+{{/if}}
+{{/if}}
+
+
+</script>
+<script>
+    M.closure(function (require) {
+        require('jq-tmpl');
+        var Pagination = require('Pagination'),
+                HoverTip = require('HoverTip');
+
+        var listCnt = $('#_j_listcnt'),
+                supportPushState = typeof history.pushState == 'function';
+        // 翻页
+        var pagi = new Pagination({
+            'total': window.Env.total,
+            'pageSize': window.Env.pageSize,
+            'currPage': window.Env.currPage,
+            'pageDisplayNum': 5,
+            'container': $('.meg_page'),
+            'tmpl': $('#_j_pagination'),
+            'callback': function (index) {
+                if (supportPushState) {
+                    loadData({'offset': (index - 1) * window.Env.pageSize});
+                } else {
+                    $('body').addClass('waiting');
+                    location.href = location.pathname + '?offset=' + (index - 1) * window.Env.pageSize;
+                }
+            }
+        });
+
+
+        $(window).bind('popstate', function () {
+            var params = history.state;
+            if (params) {
+                load(params);
+            }
+        });
+
+        if (supportPushState) {
+            var params = {'msgtype': window.Env.msgType, 'offset': (window.Env.currPage - 1) * window.Env.pageSize};
+            history.replaceState(params, '', location.pathname + '?' + $.param(params));
+        }
+
+
+        // 删除消息
+        listCnt.on('click', '._j_msg_closer', function (ev) {
+            var target = $(ev.currentTarget),
+                    msgId = target.data('msgid');
+            $.post('/msg/entry/del', {'msgid': msgId});
+            target.closest('.msgitem').slideUp();
+        });
+
+
+        // 名片
+        var userHtml = {},
+                cardHoverTip = new HoverTip({
+                    'context': listCnt,
+                    'selector': '._j_logo',
+                    'single': false,
+                    'setTip': function (trigger) {
+                        var cardDom = createCard(trigger);
+                        loadUserInfo(trigger.data('uid'));
+                        return cardDom;
+                    }
+                });
+        M.Event.on('follow success', function (args) {
+            delete userHtml[args.uid]
+        });
+
+        function createCard(trigger) {
+            var uid = trigger.data('uid');
+            return $('<div class="card_pop _j_usercard_' + trigger.data('uid') + '"><dl><dt>\
+                        <div class="pop_avatar">\
+                            <a href="/u/' + uid + '.html" target="_blank"><img src="' + trigger.attr('src') + '"></a>\
+                            <i class="border_left"></i>\
+                        </div></dt></dl><div class="block-loading" style="z-index:-1"></div></div>').appendTo(trigger.parent());
+        }
+
+        function loadUserInfo(uid) {
+            if (uid in userHtml) {
+                setCardUserInfo(uid, userHtml[uid]);
+            } else {
+                $.get('/ajax/ajax_user_pop.php', {'uid': uid}, function (res) {
+                    if (res.ret == 1 && res.html) {
+                        userHtml[uid] = res.html;
+                        setCardUserInfo(uid, userHtml[uid]);
+                    }
+                }, 'json')
+            }
+        }
+
+        function setCardUserInfo(uid, html) {
+            $('._j_usercard_' + uid).html($(html).html());
+        }
+
+        function loadData(params) {
+            $(window).scrollTop(0);
+            params = M.mix({'msgtype': window.Env.msgType}, params);
+            history.pushState(params, '', location.pathname + '?' + $.param(params));
+            load(params);
+        }
+
+        function load(params) {
+            $('body').addClass('waiting');
+            listCnt.html('<div class="block-loading"></div>');
+            $.get('/msg/entry/list', M.mix({'entry': window.Env.entry}, params), function (res) {
+                $('body').removeClass('waiting');
+                pagi.currPage = (params.offset / window.Env.pageSize) + 1;
+                pagi.drawPage();
+                if (res.data && res.data.html) {
+                    listCnt.html(res.data.html);
+                } else {
+                    listCnt.html('');
+                }
+            }, 'json');
+        }
+    });
+</script>
+<!-------意见反馈按钮-页面在feedback.html里面------->
+<style>
+    .FeedBackBtn {
+        position: fixed;
+        right: 0;
+        top: 40%;
+        z-index: 101;
+    }
+
+    .FeedBackBtn a {
+        width: 10px;
+        height: 68px;
+        display: block;
+        padding: 10px 8px 0 10px;
+        background-color: #fff8e6;
+        border: 1px solid #ffe0a6;
+        border-right: 0;
+        border-radius: 5px 0 0 5px;
+        color: #ffb13e;
+        font-weight: bold;
+        line-height: 1.2em;
+    }
+
+    .FeedBackBtn a:hover {
+        background-color: #fff0ce;
+        border: 1px solid #ffda95;
+        border-right: 0;
+        color: #e58a00;
+        text-decoration: none;
+        outline: none;
+    }
+</style>
+<div class="FeedBackBtn">
+    <a href="#" bata-href="../views/feedback.html" bata-wh="625px,321px" onclick="iframe(this)" class="_j_showfeedback">意见反馈</a>
+</div>
+
